@@ -1,0 +1,31 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<h1 class ="text-2xl m-10 font-bold">➕ Update Product</h1>
+    <form class ="bg-white shadow-md m-10 px-8 py-8 w-1/3" method="POST" enctype = "multipart/form-data">
+            {% csrf_token %}
+        <div class ="mb-2">
+            <label class ="block text-gray-700 text-sm font-bold mb-2" for="">Product Name</label>
+            <input class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700" placeholder = "Name of product" value="{{product.name}}" type="text" name = "name" id="name">
+        </div>
+        <div class ="mb-2">
+            <label class ="block text-gray-700 text-sm font-bold mb-2" for="">Price</label>
+            <input class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700" value ="{{product.price}}" placeholder = "Price" type="text"name = "price" id="price">
+        </div>
+        <div class ="mb-2">
+            <label class ="block text-gray-700 text-sm font-bold mb-2" for="">Description</label>
+            <input class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700" value = "{{product.desc}}" placeholder = "Description" type="text" name = "desc" id="desc">
+        </div>
+        <div class="mt-2">
+            <img class ="h-20 w-20" src="{{product.image.url}}" alt="">
+            <label class ="block text-gray-700 text-sm font-bold" for="">Product Image</label>
+            <input class = "py-2" type="file" accept="image/*" name = "upload" id="image">
+        </div>
+        <div class ="mt-2">
+            <input class = "px-5 py-2 bg-green-500 text-white" type="submit" name ="Edit Product" value ="Edit Product">
+        </div>
+
+    </form>
+
+
+
+ {% endblock %}
